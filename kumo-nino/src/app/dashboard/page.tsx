@@ -1,7 +1,5 @@
 "use client";
 
-import React, { useState } from "react";
-
 import {
   Dog,
   Award,
@@ -21,6 +19,7 @@ import {
 } from "lucide-react";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
+import Image from "next/image";
 
 import {
   Chart as ChartJS,
@@ -175,8 +174,6 @@ const mockAsistencias = [
 ];
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("dashboard");
-
   const getEstadoColor = (estado: string) => {
     switch (estado) {
       case "activa":
@@ -217,9 +214,7 @@ function App() {
     diasActivosEsteMes > 0
       ? (asistenciasEsteMes / diasActivosEsteMes).toFixed(1)
       : "0";
-  const promedioAsistenciasPorPerrito = (
-    totalAsistencias / mockCaninos.length
-  ).toFixed(1);
+
   const porcentajeDiasActividad = ((diasActivosEsteMes / 30) * 100).toFixed(0);
 
   return (
@@ -366,10 +361,12 @@ function App() {
                   className="bg-white/90 backdrop-blur-sm rounded-2xl overflow-hidden border border-[#CBB89D]/20 shadow-sm hover:shadow-md transition-all"
                 >
                   <div className="aspect-w-16 aspect-h-9">
-                    <img
-                      src={canino.foto}
+                    <Image
+                      src="/dog.jpg"
                       alt={canino.nombre}
                       className="w-full h-48 object-cover"
+                      width={400}
+                      height={300}
                     />
                   </div>
                   <div className="p-6">

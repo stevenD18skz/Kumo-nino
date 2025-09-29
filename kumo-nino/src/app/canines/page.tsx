@@ -143,9 +143,9 @@ const mockData = {
 };
 
 const PetsPage: React.FC = () => {
-  const [selectedPet, setSelectedPet] = useState<any>(0);
+  const [selectedPet, setSelectedPet] = useState<canine | null>(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [editForm, setEditForm] = useState<any>({});
+  const [editForm, setEditForm] = useState<canine>({} as canine);
 
   const getSizeIcon = (tamaño: string) => {
     switch (tamaño) {
@@ -188,7 +188,35 @@ const PetsPage: React.FC = () => {
     }
   };
 
-  const handleEdit = (pet: any) => {
+  type canine = {
+    id: number;
+    nombre: string;
+    raza: string;
+    edad: string;
+    tamaño: string;
+    foto: string;
+    notas: string;
+    fecha_registro: string;
+    matricula: {
+      id: number;
+      plan: string;
+      transporte: string;
+      fecha_inicio: string;
+      fecha_fin: string;
+      estado: string;
+    };
+    asistencias_mes: number;
+    asistencias_total: number;
+    historial_asistencias: {
+      fecha: string;
+      via_ruta: boolean;
+      ruta: string;
+      hora_llegada: string;
+      hora_salida: string;
+    }[];
+  };
+
+  const handleEdit = (pet: canine) => {
     setEditForm({ ...pet });
     setIsEditing(true);
   };
@@ -196,12 +224,12 @@ const PetsPage: React.FC = () => {
   const handleSave = () => {
     // Aquí iría la lógica para guardar los cambios
     setIsEditing(false);
-    setEditForm({});
+    setEditForm({} as canine);
   };
 
   const handleCancel = () => {
     setIsEditing(false);
-    setEditForm({});
+    setEditForm({} as canine);  
   };
 
   const handleDelete = (petId: number) => {
@@ -227,8 +255,8 @@ const PetsPage: React.FC = () => {
               style={{ backgroundColor: "white", borderColor: "#EADDC8" }}
             >
               <div className="relative">
-                <img
-                  src={canino.foto}
+                <Image
+                  src="/dog.jpg"
                   alt={canino.nombre}
                   className="w-full h-48 object-cover"
                   width={400}
@@ -364,8 +392,8 @@ const PetsPage: React.FC = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   {/* Información básica */}
                   <div>
-                    <img
-                      src={selectedPet.foto}
+                    <Image
+                      src="/dog.jpg"
                       alt={selectedPet.nombre}
                       className="w-full h-64 object-cover rounded-xl mb-4"
                       width={400}
@@ -559,7 +587,7 @@ const PetsPage: React.FC = () => {
                       <div className="space-y-2">
                         {selectedPet.historial_asistencias
                           .slice(0, 3)
-                          .map((asistencia: any, index: number) => (
+                          .map((asistencia, index: number) => (
                             <div
                               key={index}
                               className="flex items-center justify-between p-3 rounded-lg"
@@ -640,8 +668,7 @@ const PetsPage: React.FC = () => {
                     className="w-full p-3 rounded-lg border focus:outline-none focus:ring-2"
                     style={{
                       borderColor: "#EADDC8",
-                      backgroundColor: "#F6F1E9",
-                      focusRingColor: "#7FA087",
+                      backgroundColor: "#F6F1E9", 
                     }}
                   />
                 </div>
