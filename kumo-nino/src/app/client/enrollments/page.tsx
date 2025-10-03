@@ -390,7 +390,7 @@ const EnrollmentsPage: React.FC = () => {
                   }`}
             </p>
             <button
-              onClick={() => setShowNewEnrollment(true)}
+              onClick={() => console.log("Crear nueva matrícula")}
               className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 shadow-sm"
               style={{ backgroundColor: "#7FA087", color: "white" }}
             >
