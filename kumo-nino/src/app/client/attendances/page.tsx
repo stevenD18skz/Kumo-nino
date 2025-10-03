@@ -7,6 +7,7 @@ import {
   Clock,
   Dog,
   Filter,
+  Download,
   TrendingUp,
   Star,
   BarChart3,
@@ -14,9 +15,6 @@ import {
   CheckCircle,
   Timer,
 } from "lucide-react";
-
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 // Mock data para asistencias
 const mockAttendanceData = {
@@ -171,7 +169,38 @@ const AttendancePage: React.FC = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#F6F1E9" }}>
-      <Navbar />
+      {/* Header */}
+      <div
+        className="py-8 px-4 sm:px-6 lg:px-8"
+        style={{ backgroundColor: "#EADDC8" }}
+      >
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="flex items-center space-x-3 mb-2">
+                <Activity className="w-8 h-8" style={{ color: "#D9B778" }} />
+                <h1 className="text-3xl font-bold" style={{ color: "#302F2C" }}>
+                  Historial de Asistencias
+                </h1>
+              </div>
+              <p className="text-lg" style={{ color: "#302F2C" }}>
+                Revisa la asistencia de tus mascotas
+              </p>
+            </div>
+            <button
+              className="flex items-center space-x-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 hover:scale-105 border"
+              style={{
+                backgroundColor: "white",
+                borderColor: "#CBB89D",
+                color: "#302F2C",
+              }}
+            >
+              <Download className="w-4 h-4" />
+              <span>Exportar</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Filtros */}
@@ -201,7 +230,6 @@ const AttendancePage: React.FC = () => {
                 backgroundColor: "white",
                 borderColor: "#CBB89D",
                 color: "#302F2C",
-                focusRingColor: "#7FA087",
               }}
             >
               {mockAttendanceData.dogs.map((dog) => (
@@ -219,7 +247,6 @@ const AttendancePage: React.FC = () => {
                 backgroundColor: "white",
                 borderColor: "#CBB89D",
                 color: "#302F2C",
-                focusRingColor: "#7FA087",
               }}
             >
               <option value="Diciembre 2024">Diciembre 2024</option>
@@ -526,7 +553,6 @@ const AttendancePage: React.FC = () => {
           )}
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
