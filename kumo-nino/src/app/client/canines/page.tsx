@@ -19,8 +19,8 @@ import {
   Star,
 } from "lucide-react";
 
-import NavBar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+import NavBar from "../../../components/Navbar";
+import Footer from "../../../components/Footer";
 
 // Mock data (mismo usuario del dashboard)
 const mockData = {

@@ -11,17 +11,22 @@ const Navbar: React.FC = () => {
   const paginas = [
     {
       name: "Dashboard",
-      link: "/dashboard",
+      link: "/client/dashboard",
       icon: <Home className="w-6 h-6 text-[#302F2C]" />,
     },
     {
       name: "Mis Mascotas",
-      link: "/canines",
+      link: "/client/canines",
       icon: <Dog className="w-6 h-6 text-[#302F2C]" />,
     },
     {
       name: "Asistencia",
-      link: "/asistencia",
+      link: "/client/attendances",
+      icon: <Calendar className="w-6 h-6 text-[#302F2C]" />,
+    },
+    {
+      name: "Matricula",
+      link: "/client/enrollments",
       icon: <Calendar className="w-6 h-6 text-[#302F2C]" />,
     },
   ];
@@ -45,7 +50,7 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <header className="bg-white/80 backdrop-blur-sm border-b border-[#CBB89D]/20 sticky top-0 z-40">
+    <header className="bg-[#EADDC8]/60 backdrop-blur-sm border-b border-[#CBB89D]/20 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-3">

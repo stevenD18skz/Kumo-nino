@@ -17,8 +17,8 @@ import {
   Target,
   BarChart3,
 } from "lucide-react";
-import Footer from "../../components/Footer";
-import Navbar from "../../components/Navbar";
+import Footer from "../../../components/Footer";
+import Navbar from "../../../components/Navbar";
 import Image from "next/image";
 
 import {
@@ -41,137 +41,11 @@ ChartJS.register(
   Legend
 );
 
-const mockCaninos = [
-  {
-    id: 1,
-    nombre: "Max",
-    raza: "Golden Retriever",
-    edad: "3 años",
-    tamaño: "grande",
-    dueño_id: 1,
-    plan_id: 1,
-    notas: "Muy sociable, le encanta jugar con otros perros",
-    fecha_registro: "2024-01-15",
-    foto: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=300",
-  },
-  {
-    id: 2,
-    nombre: "Luna",
-    raza: "Border Collie",
-    edad: "2 años",
-    tamaño: "mediano",
-    dueño_id: 1,
-    plan_id: 2,
-    notas: "Muy inteligente, necesita estimulación mental",
-    fecha_registro: "2024-02-20",
-    foto: "https://images.pexels.com/photos/551628/pexels-photo-551628.jpeg?auto=compress&cs=tinysrgb&w=300",
-  },
-  {
-    id: 3,
-    nombre: "Coco",
-    raza: "French Bulldog",
-    edad: "1 año",
-    tamaño: "pequeño",
-    dueño_id: 1,
-    plan_id: 3,
-    notas: "Tranquilo, ideal para apartamento",
-    fecha_registro: "2024-03-10",
-    foto: "https://images.pexels.com/photos/1851164/pexels-photo-1851164.jpeg?auto=compress&cs=tinysrgb&w=300",
-  },
-];
-
-const mockMatriculas = [
-  {
-    id: 1,
-    canino_id: 1,
-    plan: "6m",
-    transporte: "completo",
-    fecha_inicio: "2024-01-15",
-    fecha_fin: "2024-07-15",
-    estado: "activa",
-  },
-  {
-    id: 2,
-    canino_id: 2,
-    plan: "3m",
-    transporte: "mañana",
-    fecha_inicio: "2024-02-20",
-    fecha_fin: "2024-05-20",
-    estado: "próxima a vencer",
-  },
-  {
-    id: 3,
-    canino_id: 3,
-    plan: "1m",
-    transporte: "ninguno",
-    fecha_inicio: "2024-02-10",
-    fecha_fin: "2024-03-10",
-    estado: "vencida",
-  },
-];
-
-const mockAsistencias = [
-  {
-    id: 1,
-    canino_id: 1,
-    fecha: "2024-03-16",
-    via_ruta: true,
-    ruta: "mañana",
-    hora_llegada: "08:30",
-    hora_salida: "17:00",
-    despacho_por_ruta: true,
-  },
-  {
-    id: 2,
-    canino_id: 1,
-    fecha: "2024-03-17",
-    via_ruta: true,
-    ruta: "mañana",
-    hora_llegada: "08:45",
-    hora_salida: "17:15",
-    despacho_por_ruta: true,
-  },
-  {
-    id: 3,
-    canino_id: 2,
-    fecha: "2024-03-21",
-    via_ruta: true,
-    ruta: "mañana",
-    hora_llegada: "08:20",
-    hora_salida: "13:00",
-    despacho_por_ruta: false,
-  },
-  {
-    id: 4,
-    canino_id: 1,
-    fecha: "2024-03-18",
-    via_ruta: false,
-    ruta: "ninguna",
-    hora_llegada: "09:00",
-    hora_salida: "16:30",
-    despacho_por_ruta: false,
-  },
-  {
-    id: 5,
-    canino_id: 3,
-    fecha: "2024-03-11",
-    via_ruta: false,
-    ruta: "ninguna",
-    hora_llegada: "10:00",
-    hora_salida: "15:00",
-    despacho_por_ruta: false,
-  },
-  {
-    id: 6,
-    canino_id: 3,
-    fecha: "2024-03-11",
-    via_ruta: false,
-    ruta: "ninguna",
-    hora_llegada: "10:00",
-    hora_salida: "15:00",
-    despacho_por_ruta: false,
-  },
-];
+import {
+  mockCaninos,
+  mockMatriculas,
+  mockAsistencias,
+} from "../../../lib/mock";
 
 function App() {
   const getEstadoColor = (estado: string) => {
